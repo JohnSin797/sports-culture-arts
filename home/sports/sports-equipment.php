@@ -170,6 +170,12 @@ $result = $CON->query($sql);
           <span class="notogglemenu1">Reports</span>
         </a>
       </li>
+      <li class="menu-report-container">
+          <a href="#" class="no">
+            <img src="" alt="" />
+            <span class="notogglemenu1">Data Entry</span>
+          </a>
+      </li>
     </ul>
   </aside>
 <main>
@@ -229,7 +235,7 @@ $result = $CON->query($sql);
   <div class="content active" id="all" >
       <?php
           while($row = $result->fetch_assoc()) {
-            echo '<button onclick="setTypeAndSubmit('.$row['equipment_type_id'].')" class="item"><img src="'.$row['type_image'].'" alt="'.$row['name'].'"><p>'.$row['name'].'</p></button>';
+            echo '<div style="cursor:pointer;" onclick="setTypeAndSubmit('.$row['equipment_type_id'].')" class="item"><img src="../../'.$row['type_image'].'" alt="'.$row['name'].'"><p>'.$row['name'].'</p></div>';
           }
       ?>
   </div>

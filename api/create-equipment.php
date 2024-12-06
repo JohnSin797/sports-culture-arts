@@ -1,6 +1,6 @@
 <?php
 // Check if form is submitted
-include('../../connection/dbase.php');
+include('../connection/dbase.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the required fields are not empty
     if (isset($_POST['equipment_type']) && !empty($_POST['equipment_type']) && isset($_POST['equipment_name']) && !empty($_POST['equipment_name'])) {

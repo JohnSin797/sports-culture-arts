@@ -210,7 +210,7 @@ if (isset($_POST['type'])) {
             </li>
         </ul>
     </aside>
-    <main class="">
+    <main class="container">
         <?php
             while($row = $result->fetch_assoc()) {
                 echo $row['equipment_name'];    

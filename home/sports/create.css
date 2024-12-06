@@ -38,7 +38,7 @@
     line-height: 1.75rem;
 }
 
-.panelbody input[type="text"], select {
+.panelbody input[type="text"], input[type="file"], select {
     padding: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -70,6 +70,19 @@
     background-color: rgb(96 165 250);
     border-color: #6dce33;
     cursor: pointer;
+}
+
+.chooseImg-btn {
+    display: block;
+    padding: 0.25rem;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    background-color: rgb(45 212 191);
+}
+
+.chooseImg-btn:hover {
+    background-color: rgb(13 148 136);
 }
 
 .submit-btn:hover {

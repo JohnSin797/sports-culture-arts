@@ -177,9 +177,43 @@ $firstLetterFirstname = substr($firstname, 0, 1);
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name" required>
                 </div>
+                <div class="panelbody lined">
+                    <label 
+                        for="type_image" 
+                        style="padding:0.25rem;color:white;font-weight:600;border-radius: 0.25rem;background-color:rgb(45 212 191);cursor:pointer;"
+                        onmouseover="this.style.backgroundColor='rgb(13 148 136)';"
+                        onmouseout="this.style.backgroundColor='rgb(45 212 191)';"
+                    >
+                        Choose Image
+                    </label>
+                    <input type="file" name="type_image" accept="image/jpeg,image/jpg,image/png" onchange="previewImage(event)" id="type_image" style="display:none;">
+                </div>
+                <div class="panelbody lined">
+                    <div class="static-frame-sm" style="display:block;width:200px;height:200px;">
+                        <img id="preview" src="#" alt="Image Preview" style="display: none; max-width: 200px; max-height: 200px;" />
+                    </div>
+                </div>
                 <button type="submit" class="submit-btn">save</button>
             </form>
         </section>
     </main>
+
+    <script>
+        function previewImage(event) {
+            const preview = document.getElementById('preview');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "#";
+                preview.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
