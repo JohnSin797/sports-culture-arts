@@ -45,6 +45,7 @@
                 // Regenerate session ID to prevent session fixation
                 session_regenerate_id(true);
 
+                $_SESSION['id'] = $row['id'];
                 $_SESSION['Student_id'] = $row['Student_id'];
                 $_SESSION['Fullname'] = $row['Fullname'];
                 $_SESSION['Usertype'] = $row['Usertype'];

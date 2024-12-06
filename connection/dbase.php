@@ -1,9 +1,9 @@
 <?php
 /*fixed, no need to debug */
-    $db_host = "sql208.infinityfree.com";
-    $user = "if0_37517235";
-    $pass = "v1B59vfqNJVyr";
-    $db_name = "if0_37517235_skcinventory";
+    $db_host = "127.0.0.1";
+    $user = "root";
+    $pass = "";
+    $db_name = "sports_culture_arts";
     $CON = "";
 
     try {

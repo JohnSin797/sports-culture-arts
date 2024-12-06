@@ -1,0 +1,77 @@
+.container {
+    width: 100%;
+    min-height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.panel {
+    border-radius: 0.5rem;
+    background-color: #6dce33;
+    padding: 1.25rem;
+    width: 40%;
+}
+
+.panelbody {
+    width: 100%;
+}
+
+.headersect {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.lined {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.headersect h1 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.panelbody input[type="text"], select {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.inputNumber {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.panelbody label {
+    font-weight: bold;
+    font-size: 0.75rem; 
+    line-height: 1rem;
+}
+
+.submit-btn {
+    padding: 0.5rem;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    background-color: rgb(96 165 250);
+    border-color: #6dce33;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: rgb(37 99 235);
+}

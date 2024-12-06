@@ -16,6 +16,11 @@ $firstname = $_SESSION['Firstname'];
 $firstLetterLastname = substr($lastname, 0, 1);
 $firstLetterFirstname = substr($firstname, 0, 1);
 
+include('../../connection/dbase.php');
+
+$sql = "SELECT * FROM equipment_type";
+$result = $CON->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -200,7 +205,7 @@ $firstLetterFirstname = substr($firstname, 0, 1);
     <div class="tab" onclick="showContent('team')">TEAM</div>
   </div>
 
-  <div class="content active" id="all">
+  <!-- <div class="content active" id="all">
     <div class="item"><img src="../../img/equipments/arnistick.png" alt="Arnis"><p>Arnis</p></div>
     <div class="item">
     <img src="../../img/equipments/../../img/equipments/shotput-ball.png" alt="Athletics">
@@ -219,9 +224,17 @@ $firstLetterFirstname = substr($firstname, 0, 1);
     <div class="item"><img src="../../img/equipments/takraw-ball.png" alt="Sepak Takraw"><p>Sepak Takraw</p></div>
     <div class="item"><img src="../../img/equipments/soccerball.png" alt="Soccer"><p>Soccer</p></div>
     <div class="item"><img src="../../img/equipments/volleyball-ball.png" alt="Volleyball"><p>Volleyball</p></div>
+  </div> -->
+
+  <div class="content active" id="all" >
+      <?php
+          while($row = $result->fetch_assoc()) {
+            echo '<button onclick="setTypeAndSubmit('.$row['equipment_type_id'].')" class="item"><img src="'.$row['type_image'].'" alt="'.$row['name'].'"><p>'.$row['name'].'</p></button>';
+          }
+      ?>
   </div>
 
-  <div class="content" id="individual">
+  <!-- <div class="content" id="individual">
     <div class="item"><img src="../../img/equipments/arnistick.png" alt="Arnis"><p>Arnis</p></div>
     <div class="item">
     <img src="../../img/equipments/../../img/equipments/shotput-ball.png" alt="Athletics">
@@ -232,14 +245,14 @@ $firstLetterFirstname = substr($firstname, 0, 1);
     <div class="item"><img src="../../img/equipments/chess.png" alt="Chess"><p>Chess</p></div>
     <div class="item"><img src="../../img/equipments/table-tennes.png" alt="Table Tennis"><p>Table Tennis</p></div>
     <div class="item"><img src="../../img/equipments/soccerball.png" alt="Soccer"><p>Soccer</p></div>
-  </div>
+  </div> -->
 
-  <div class="content" id="dual">
+  <!-- <div class="content" id="dual">
     <div class="item"><img src="../../img/equipments/shuttlecock.png" alt="Badminton"><p>Badminton</p></div>
     <div class="item"><img src="../../img/equipments/table-tennes.png" alt="Table Tennis"><p>Table Tennis</p></div>
-  </div>
+  </div> -->
 
-  <div class="content" id="team">
+  <!-- <div class="content" id="team">
     <div class="item">
     <img src="../../img/equipments/baseball-ball.png" alt="Baseball/Softball">
     <img src="../../img/equipments/soccerball.png" alt="Baseball/Softball">
@@ -248,9 +261,21 @@ $firstLetterFirstname = substr($firstname, 0, 1);
     <div class="item"><img src="../../img/equipments/takraw-ball.png" alt="Sepak Takraw"><p>Sepak Takraw</p></div>
     <div class="item"><img src="../../img/equipments/soccerball.png" alt="Soccer"><p>Soccer</p></div>
     <div class="item"><img src="../../img/equipments/volleyball-ball.png" alt="Volleyball"><p>Volleyball</p></div>
-  </div>
+  </div> -->
 </div>
-
+          <form method="POST" action="equipment-list.php">
+            <input type="hidden" name="type">
+          </form>
       </main>
+
+      <script>
+        // Function to change the value of the input and automatically submit the form
+        function setTypeAndSubmit(value) {
+            const form = document.querySelector('form');
+            const typeInput = document.querySelector('input[name="type"]');
+            typeInput.value = value; // Set the value of the hidden input
+            form.submit(); // Automatically submit the form
+        }
+    </script>
   </body>
 </html>
